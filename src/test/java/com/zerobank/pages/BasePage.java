@@ -8,10 +8,9 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class BasePage {
-    public BasePage(){
-        PageFactory.initElements(Driver.get(),this);
-    }
+public abstract class BasePage {
+
+
     @FindBy(css = "ul.nav.nav-tabs>li")
     public List<WebElement> menuOptions;
 
@@ -50,6 +49,9 @@ public class BasePage {
 
     @FindBy(linkText = "Zero Bank")
     public WebElement zeroBankIcon;
+    public BasePage(){
+        PageFactory.initElements(Driver.get(),this);
+    }
 
 //dropown for Logout
 

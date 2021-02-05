@@ -8,6 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.List;
 
 public class accountSummaryPage extends BasePage {
+
     public accountSummaryPage(){
         PageFactory.initElements(Driver.get(),this);
     }
@@ -32,5 +33,8 @@ public class accountSummaryPage extends BasePage {
 
     @FindBy(xpath = "(//tbody/tr/td/a)[6]")
     public WebElement loan;
+
+    @FindBy(xpath = "//tbody/tr/td/a")
+    public List<WebElement>links;
 
 }

@@ -18,6 +18,7 @@ public class Hooks {
 
         System.out.println("\tThis is coming from BEFORE");
         Driver.get().get(ConfigurationReader.get("url"));
+        Driver.get().manage().window().maximize();
         Driver.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 

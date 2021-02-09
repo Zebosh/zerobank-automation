@@ -377,4 +377,16 @@ public class BrowserUtils {
 
 
 
+    public static List<String> getListofString(List<WebElement> list) {
+        List<String> listOfStrings = new ArrayList<>();
+        for (WebElement element : list) {
+            String value=element.getText();
+            if(value.length()>0)
+                listOfStrings.add(value);
+        }
+        return  listOfStrings;
+    }
+
+
+
 }

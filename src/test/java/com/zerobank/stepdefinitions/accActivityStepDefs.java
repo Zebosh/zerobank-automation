@@ -24,13 +24,6 @@ public class accActivityStepDefs {
         loginPage.login();
 
     }
-//    @When("the user clicks on Savings link on the Account Summary page")
-//    public void the_user_clicks_on_Savings_link_on_the_Account_Summary_page() {
-//       // System.out.println("User clicks on Savings link");
-//
-//        accountSummaryPage accountSummaryPage=new accountSummaryPage();
-//        accountSummaryPage.savings.click();
-//    }
 
     @When("the user clicks on {string} link on the Account Summary page")
     public void the_user_clicks_on_link_on_the_Account_Summary_page(String link) {
@@ -58,35 +51,6 @@ public class accActivityStepDefs {
        Assert.assertEquals(string,actualSelected);
 
     }
-
-
-//    @When("the user clicks on Brokerage link on the Account Summary page")
-//    public void the_user_clicks_on_Brokerage_link_on_the_Account_Summary_page() {
-//        accountSummaryPage accountSummaryPage=new accountSummaryPage();
-//        accountSummaryPage.brokerage.click();
-//
-//    }
-//    @When("the user clicks on Checking link on the Account Summary page")
-//    public void the_user_clicks_on_Checking_link_on_the_Account_Summary_page() {
-//        accountSummaryPage accountSummaryPage=new accountSummaryPage();
-//        accountSummaryPage.checkingLink.click();
-//
-//    }
-//
-//
-//    @When("the user clicks on Credit Card link on the Account Summary page")
-//    public void the_user_clicks_on_Credit_Card_link_on_the_Account_Summary_page() {
-//        accountSummaryPage accountSummaryPage=new accountSummaryPage();
-//        accountSummaryPage.creditCard.click();
-//    }
-//
-//    @When("the user clicks on Loan link on the Account Summary page")
-//    public void the_user_clicks_on_Loan_link_on_the_Account_Summary_page() {
-//        accountSummaryPage accountSummaryPage=new accountSummaryPage();
-//        accountSummaryPage.loan.click();
-//
-//    }
-
 
 
 

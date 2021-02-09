@@ -1,6 +1,7 @@
 package com.zerobank.pages;
 
 import com.zerobank.utilities.Driver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,7 +10,6 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.List;
 
 public abstract class BasePage {
-
 
     @FindBy(css = "ul.nav.nav-tabs>li")
     public List<WebElement> menuOptions;
@@ -96,12 +96,12 @@ public abstract class BasePage {
      */
 
     public void navigateToModule(String tab){
-
-        for (WebElement menuOption : menuOptions) {
-           if(menuOption.getText().equals(tab))
-                menuOption.click();
-                return;
-        }
+try {
+  Driver.get().findElement(By.xpath("//a[text()='"+tab+"']")).click();
+    } catch(Exception e){
+    e.printStackTrace();
+    System.out.println("Check entered input tab = " + tab);
+}
 
     }
 }

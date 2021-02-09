@@ -38,6 +38,9 @@ public class accountSummaryPage extends BasePage {
     @FindBy(xpath = "//tbody/tr/td/a")
     public List<WebElement>links;
 
+    @FindBy(xpath = "//a[.='Account Activity']")
+    public WebElement accountActivity;
+
     public void clickLink(String linkName){
 
         switch(linkName){
@@ -47,8 +50,8 @@ public class accountSummaryPage extends BasePage {
             case "Credit Card":creditCard.click();break;
             case "Loan":loan.click();break;
 
-
         }
-
     }
+
+
 }

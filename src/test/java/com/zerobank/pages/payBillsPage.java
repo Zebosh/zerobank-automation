@@ -5,7 +5,10 @@ import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class payBillsPage extends BasePage {
@@ -37,6 +40,12 @@ public class payBillsPage extends BasePage {
     @FindBy(id = "alert_content")
     public WebElement alertMessage;
 
+    @FindBy(linkText = "Purchase Foreign Currency")
+    public WebElement purchaseForeignCurrency;
+
+    @FindBy(id = "pc_currency")
+    public WebElement dropDownElement;
+
     public  void insertPayeeInfo(Map<String,String> payeeInfoList){
       payeeName.sendKeys(payeeInfoList.get("Payee Name"));
       payeeAddress.sendKeys(payeeInfoList.get("Payee Address"));
@@ -48,6 +57,15 @@ public class payBillsPage extends BasePage {
     public void verifySuccessMessage(String expectedMessage){
         Assert.assertTrue(alertMessage.isDisplayed());
         Assert.assertEquals(expectedMessage,alertMessage.getText());
+    }
+    public List<WebElement> getDropDownOptions(){
+        Select select=new Select(dropDownElement);
+        List<WebElement>newlist=new ArrayList<>();
+        for (WebElement option : select.getOptions()) {
+            if(!option.isSelected())
+                newlist.add(option);
+        }
+        return newlist;
     }
 
 }

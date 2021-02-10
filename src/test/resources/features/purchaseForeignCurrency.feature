@@ -1,11 +1,12 @@
 Feature: PurchaseForeignCurrency
 
-  @wip
+Background:
+  Given the user is logged in
+  And the user clicks on "Pay Bills" page
+  And  the user accesses the Purchase foreign currency cash tab
+
+
   Scenario: Available currencies
-    Given the user is logged in
-    And the user clicks on "Pay Bills" page
-    And the user clicks on "Purchase Foreign Currency" link on the "Pay Bills" page
-    Given the user accesses the Purchase foreign currency cash tab
     Then following currencies should be available
 
       | Australia (dollar)    |
@@ -20,3 +21,12 @@ Feature: PurchaseForeignCurrency
       | Norway (krone)        |
       | New Zealand (dollar)  |
       | Singapore (dollar)    |
+
+
+  Scenario: Error message for not selecting currency
+    When user tries to calculate cost without selecting a currency
+    Then error message should be displayed
+
+  Scenario:Error message for not entering value
+    When user tries to calculate cost without entering a value
+    Then error message should be displayed

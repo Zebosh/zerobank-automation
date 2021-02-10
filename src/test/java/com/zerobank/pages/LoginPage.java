@@ -23,12 +23,12 @@ public LoginPage(){
     public WebElement userName;
 
    @FindBy(id = "user_password")
-    public WebElement password;
+    public WebElement passWord;
 
    @FindBy(name = "submit")
     public WebElement submit;
 
-   @FindBy(className = "alert alert-error")
+   @FindBy(css = ".alert.alert-error")
    public WebElement errorMessage;
 
    @FindBy(id = "details-button")
@@ -45,15 +45,22 @@ public LoginPage(){
     public void login(){
    // signIn.click();
     userName.sendKeys("username");
-    password.sendKeys("password");
+    passWord.sendKeys("password");
     submit.click();
     BrowserUtils.waitFor(1);
     warningMessage.click();
     warningPageLink.click();
 
-
-
 }
+
+     public void loginWithInvInfo(String username, String password){
+        userName.sendKeys(username);
+        passWord.sendKeys(password);
+         submit.click();
+         BrowserUtils.waitFor(1);
+
+    }
+
 public String getErrorMesage(){
     return  errorMessage.getText();
 }
@@ -63,12 +70,6 @@ public String getErrorMesage(){
  *  @param passwordStr
  */
 
-public void loginInvalid(String userNameStr, String passwordStr){
-    signIn.click();
-    userName.sendKeys(userNameStr);
-    password.sendKeys(passwordStr);
-    submit.click();
-    getErrorMesage();
-}
+
 }
 

@@ -46,6 +46,12 @@ public class payBillsPage extends BasePage {
     @FindBy(id = "pc_currency")
     public WebElement dropDownElement;
 
+    @FindBy(id = "pc_amount")
+    public WebElement amountInputBox;
+
+    @FindBy(id = "pc_calculate_costs")
+    public WebElement calculateCostsButton;
+
     public  void insertPayeeInfo(Map<String,String> payeeInfoList){
       payeeName.sendKeys(payeeInfoList.get("Payee Name"));
       payeeAddress.sendKeys(payeeInfoList.get("Payee Address"));

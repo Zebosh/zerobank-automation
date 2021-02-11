@@ -33,4 +33,10 @@ public class AccountSummaryStepDefs {
 
     }
 
+    @When("the user clicks on {string} tab on the Account Summary page")
+    public void the_user_clicks_on_tab_on_the_Account_Summary_page(String string) {
+       new accountSummaryPage().accountActivity.click();
+       BrowserUtils.waitFor(1);
+    }
+
 }

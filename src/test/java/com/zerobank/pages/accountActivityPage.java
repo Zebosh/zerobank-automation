@@ -18,8 +18,15 @@ public class accountActivityPage extends BasePage {
         PageFactory.initElements(Driver.get(), this);
     }
 
-    @FindBy(xpath = "//select[@name='accountId']")
+    @FindBy(css = "#aa_accountId")
     public WebElement dropDownElement;
+
+
+    @FindBy(xpath = "//option")
+    public List<WebElement> dropDownElements;
+
+    @FindBy(xpath = "//thead/tr/th")
+    public List<WebElement>columnNames;
 
 
     public String getFirst() {

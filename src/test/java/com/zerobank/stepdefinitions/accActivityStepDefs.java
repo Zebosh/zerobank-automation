@@ -13,8 +13,10 @@ import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 
 import java.lang.module.Configuration;
+import java.util.List;
 
 public class accActivityStepDefs {
+    accountActivityPage accountActivityPage=new accountActivityPage();
 
     @Given("the user is logged in")
     public void the_user_is_logged_in() {
@@ -50,8 +52,25 @@ public class accActivityStepDefs {
         System.out.println(actualSelected);
        Assert.assertEquals(string,actualSelected);
 
+
+    }
+    @Then("Account drop down should have following options")
+    public void account_drop_down_should_have_following_options(List<String>dropDownOptions) {
+
+        List<String> actualdropDownElements = BrowserUtils.getElementsText(accountActivityPage.dropDownElements);
+
+        Assert.assertEquals(dropDownOptions,actualdropDownElements);
+
+
     }
 
+    @Then("the table should have following columns")
+    public void the_table_should_have_following_columns(List<String> columnNames) {
 
+        List<String> actualColumnNames = BrowserUtils.getElementsText(accountActivityPage.columnNames);
+        System.out.println("actualColumnNames = " + actualColumnNames);
+        Assert.assertEquals(columnNames,actualColumnNames);
+
+    }
 
 }
